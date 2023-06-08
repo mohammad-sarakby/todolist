@@ -161,8 +161,11 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-const port = process.env.port || 5000 ;
-const Server = http.createServer(app);
+let port = process.env.PORT;
+if(port == null || port == ""){
+  port = 3000 ;
+}
+
 app.listen(port, function() {
   console.log("Success conntect");
 });
